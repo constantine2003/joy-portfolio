@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Hannari&display=swap');
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #00263B;
+    overflow: hidden;
+    scrollbar-width: none;
+    align-items: flex-start;
+}
+
+.sidebar{
+    background-color: #242424;
+    width: 100px;
+    height: 100%;
+    min-height: 500px;
+    position: relative;
+    top: 0;
+    display: flex;
+}
+
+.profilecontent{
+    background-color: #00263B;
+    flex: 1;
+    padding: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    height: 100vh;
+}
+
+.firsthalf{
+    overflow: hidden;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: column;
+    background-color: blue;
+}
+.wrap{
+    display: block;
+    height: 300px;
+    background-color: red;
+    padding-left: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    padding-left: 50px;
+    font-size: 3rem;
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-family: 'Headland One', serif;
+    letter-spacing: 2px;
+}
+.first{
+    font-size: 96px;
+}
+.second{
+    font-size: 48px;
+}
+.fourth{
+    font-size: 64px;
+}
+.third{
+    font-family: 'Hannari', sans-serif;
+    color: #808080;
+}
+
+.secondhalf{
+    height: 100%;
+    width: 50%;
+    background-color: red;
+    display: flex;
+}
