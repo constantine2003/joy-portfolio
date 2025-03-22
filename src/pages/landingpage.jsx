@@ -21,11 +21,34 @@ function LandingPage() {
                     <div className={styles.firstbox}>
                         <h3 className={styles.latex}>{"\\documentclass{article}"}</h3>
                     </div>
+
                     <div className={styles.wrap}>
-                        <h1 className={styles.first}>Hi,</h1>
-                        <h1 className={styles.second}>I'm Joy Arenas</h1>
-                        <h1 className={styles.second}>a <span className={styles.fourth}>Mathematician</span></h1>
-                        <h3 className={styles.third}>BS Math / DOST Scholar / UP Graduate</h3>
+
+                    <h1 className={styles.first}>
+                        {Array.from("Hi,").map((char, index) => (
+                        <span key={index}>{char}</span>
+                        ))}
+                    </h1>
+
+                    <h1 className={styles.second}>
+                        {Array.from("I'm Joy Arenas").map((char, index) => (
+                        <span key={index}>{char === " " ? "\u00A0" : char}</span>
+                        ))}
+                    </h1>
+
+                    <h1 className={styles.second}>
+                        {Array.from("a Mathematician").map((char, index) => (
+                        <span key={index} className={char === " " ? "" : styles.fourth}>
+                        {char === " " ? "\u00A0" : char}</span>
+                        ))}
+                    </h1>
+
+                    <h3 className={styles.third}>
+                        {Array.from("BS Math / DOST Scholar / UP Graduate").map((char, index) => (
+                        <span key={index}>{char === " " ? "\u00A0" : char}</span>
+                        ))}
+                    </h3>
+
                         <button className={styles.contactmebutton}>CONTACT ME</button>
 
                         <h3 className={styles.latexx}>{"\\end{document}"}</h3>

@@ -121,6 +121,23 @@ h1{
     color: #808080;
     letter-spacing: 2px;
 }
+
+.first span, 
+.second span, 
+.fourth span, 
+.third span {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+
+.first span:hover, 
+.second span:hover, 
+.fourth span:hover, 
+.third span:hover {
+    transform: scale(1.5); 
+    color: #FDC830;
+}
+
 .contactmebutton{
     color: #FDC830;
     width: 245px;
