@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Hannari&display=swap');
+
 .container {
     display: flex;
     height: 100vh;
     width: 100vw;
     background-color: #00263B;
-    overflow: hidden;
     scrollbar-width: none;
     align-items: flex-start;
+    overflow: hidden;
 }
 
 .sidebar{
-    background-color: #242424;
+    background-color: #161616;
     width: 100px;
     height: 100%;
     min-height: 500px;
@@ -22,8 +23,6 @@
 .profilecontent{
     background-color: #00263B;
     flex: 1;
-    padding: 20px;
-    padding-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between; 
@@ -31,20 +30,56 @@
 }
 
 .firsthalf{
-    overflow: hidden;
     height: 100%;
-    width: 50%;
+    width: 40%;
     display: flex;
     align-items: baseline;
     justify-content: center;
     flex-direction: column;
-    background-color: blue;
+    /* background-color: blue;  */
+    position: relative;
 }
+.firstbox {
+    background-color: #D9D9D9;
+    height: 20%;
+    width: 100%;
+    top:0;
+    left: 0;
+    position: absolute;
+    animation: slideInFromLeft 2s ease;
+    padding-left: 15%;
+    font-family: "Homemade Apple";
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+@keyframes slideInFromLeft {
+    from {
+      transform: translateX(-100vw); /* Start off-screen to the right */
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0); /* End at its original position */
+      opacity: 1;
+    }
+  }
+.latex{
+    font-family: "Homemade Apple";
+    font-size: 16px;
+}
+.latexx{
+    color: #FDC830;
+    font-family: "Homemade Apple";
+    font-size: 16px;
+    margin-top: 15%;
+}
+
 .wrap{
     display: block;
     height: 300px;
-    background-color: red;
-    padding-left: 20px;
+    width: 90%;
+    /* background-color: red;  */
+    padding-left: 15%;
     justify-content: center;
     align-items: center;
 }
@@ -57,6 +92,7 @@ h1{
     margin: 0;
     font-family: 'Headland One', serif;
     letter-spacing: 2px;
+    cursor: default;
 }
 .first{
     font-size: 96px;
@@ -70,11 +106,88 @@ h1{
 .third{
     font-family: 'Hannari', sans-serif;
     color: #808080;
+    letter-spacing: 2px;
+}
+.contactmebutton{
+    color: #FDC830;
+    width: 245px;
+    height: 60px;
+    background-color: transparent;
+    font-size: 24px;
+    border-color: #FDC830;
+    border-width: 3px;
+    cursor: pointer;
 }
 
 .secondhalf{
     height: 100%;
-    width: 50%;
-    background-color: red;
+    width: 60%;
+     /* background-color: red;   */
     display: flex;
+    justify-content: start;
+    align-items: center;
+    position: relative;
 }
+.secondbox {
+    background-color: #D9D9D9;
+    width: 30%;
+    height: 40%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1; /* Keep below the image */
+    animation: slideInFromUp 2s ease;
+}
+@keyframes slideInFromUp {
+    from {
+      transform: translateY(-100vh); /* Start off-screen to the right */
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0); /* End at its original position */
+      opacity: 1;
+    }
+  }
+
+.imagewrapper {
+    height: 70%;
+    width: 70%;
+    background-color: transparent;
+    padding-left: 10%;
+    position: relative; /* Ensure stacking works */
+    z-index: 2; /* Higher than .secondbox */
+    animation: slideInFromDown 2s ease;
+    /* Clip the image so only the bottom part shows on top */
+    clip-path: inset(40px 0 0 0);
+}
+
+@keyframes slideInFromDown {
+    from {
+      transform: translateY(100vw); /* Start off-screen to the right */
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0); /* End at its original position */
+      opacity: 1;
+    }
+  }
+
+.thirdbox{
+    background-color: #808080;
+    width: 100%;
+    height: 20%;
+    margin-top: 35%;
+    position: absolute;
+    animation: slideInFromRight 2s ease;
+}
+@keyframes slideInFromRight {
+    from {
+      transform: translateX(100vw); /* Start off-screen to the right */
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0); /* End at its original position */
+      opacity: 1;
+    }
+  }

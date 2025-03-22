@@ -10,16 +10,30 @@ function LandingPage() {
 
             <div className={styles.profilecontent}>
                 <div className={styles.firsthalf}>
+                    {/*Rectangle*/}
+                    <div>
+
+                    </div>
+                    <div className={styles.firstbox}>
+                        <h3 className={styles.latex}>{"\\documentclass{article}"}</h3>
+                    </div>
                     <div className={styles.wrap}>
                         <h1 className={styles.first}>Hi,</h1>
                         <h1 className={styles.second}>I'm Joy Arenas</h1>
                         <h1 className={styles.second}>a <span className={styles.fourth}>Mathematician</span></h1>
-                        <h3 className={styles.third}>BS MATH / DOST SCHOLAR / UP GRADUATE</h3>
-                        
+                        <h3 className={styles.third}>BS Math / DOST Scholar / UP Graduate</h3>
+                        <button className={styles.contactmebutton}>CONTACT ME</button>
+
+                        <h3 className={styles.latexx}>{"\\end{document}"}</h3>
                     </div>
                 </div>
+                
                 <div className={styles.secondhalf}>
-                    
+                    <div className={styles.secondbox}></div>
+                    <div className={styles.imagewrapper}>
+                        <img src="/Joy_Arenas_uyab-removebg-preview.png" alt="Joy Arenas" />
+                    </div>
+                    <div className={styles.thirdbox}></div>
                 </div>
             </div>
         </div>
