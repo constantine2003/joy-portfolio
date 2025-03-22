@@ -18,6 +18,18 @@
     position: relative;
     top: 0;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.fonts{
+    border-color:#FDC830 ;
+    color: #FDC830;
+    display: flex;
+    margin-top: 15%;
+    margin-bottom: 15%;
+    cursor: pointer;
 }
 
 .profilecontent{
@@ -64,14 +76,15 @@
     }
   }
 .latex{
-    font-family: "Homemade Apple";
     font-size: 16px;
+    letter-spacing: 1px;
 }
 .latexx{
     color: #FDC830;
     font-family: "Homemade Apple";
     font-size: 16px;
     margin-top: 15%;
+    letter-spacing: 1px;
 }
 
 .wrap{

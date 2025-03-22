@@ -1,11 +1,15 @@
 import styles from "../styles/landingpage.module.css";  // Correct import
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse, faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 function LandingPage() {
     return (
         <div className={styles.container}>
             {/*Top bar*/}
             <div className={styles.sidebar}> 
-
+            <FontAwesomeIcon className={styles.fonts} size="2x" icon={faHouse} />
+            <FontAwesomeIcon className={styles.fonts} icon={faUser} size="2x" />      
+            <FontAwesomeIcon className={styles.fonts} icon={faEnvelope} size="2x" />
             </div>
 
             <div className={styles.profilecontent}>
