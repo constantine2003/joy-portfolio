@@ -1,0 +1,22 @@
+.sidebar{
+    background-color: #161616;
+    width: 100px;
+    height: 100%;
+    min-height: 500px;
+    position: relative;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.fonts{
+    border-color:#FDC830 ;
+    color: #FDC830;
+    display: flex;
+    margin-top: 20%;
+    margin-bottom: 20%;
+    cursor: pointer;
+}

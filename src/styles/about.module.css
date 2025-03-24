@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #00263B;
+    scrollbar-width: none;
+    align-items: flex-start;
+    overflow: hidden;
+    position: relative;
+}
+
+.content{
+    background-color: #00263B;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    height: 100vh;
+}
