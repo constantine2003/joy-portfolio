@@ -17,3 +17,86 @@
     justify-content: space-between; 
     height: 100vh;
 }
+
+.firsthalf{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: column;  
+    position: relative;
+}
+
+.topbox, .middlebox, .lowerbox{
+    padding-left: 12%;
+    display: flex;
+    width: 88%;
+}
+.topbox{
+    height: 20%;
+    font-family: "Homemade Apple";
+    font-size: 16px;
+    color: #808080;
+    align-items: center;
+}
+.middlebox{
+    height: 60%;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    position: relative;
+}
+.aboutmeparent{
+    font-family: 'Headland One', serif;
+    height: 20%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+.aboutme{
+    color: #FDC830;
+    font-size: 96px;
+    justify-content: center;
+    align-items: center;
+}
+.aboutdetailsparent{
+    font-family: 'Hannari', sans-serif;
+    height: 70%;
+    width: 85%;
+
+}
+.aboutdetails{
+    font-size: 20px;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+    color: white;
+    font-weight: lighter;
+}
+
+.lowerbox{
+    height: 20%;
+    font-family: "Homemade Apple";
+    color: #808080;
+}
+
+.secondhalf{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    transform-style: preserve-3d; /* Ensures child elements maintain 3D */
+}
+
+.cube{
+    background-color: red;
+    width: 400px;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
