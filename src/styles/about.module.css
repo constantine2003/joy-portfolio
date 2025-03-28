@@ -19,7 +19,7 @@
 }
 
 .firsthalf{
-    height: 100%;
+    height: 100vh;
     width: 50%;
     display: flex;
     align-items: baseline;
@@ -29,7 +29,7 @@
 }
 
 .topbox, .middlebox, .lowerbox{
-    padding-left: 12%;
+    padding-left: 10%;
     display: flex;
     width: 88%;
 }
@@ -37,15 +37,16 @@
     height: 20%;
     font-family: "Homemade Apple";
     font-size: 16px;
-    color: #808080;
+    color: #FDC830;
     align-items: center;
 }
 .middlebox{
-    height: 60%;
+    height: 70%;
     flex-direction: column;
     align-items: start;
     justify-content: center;
     position: relative;
+    animation: fadeIn 2s ease-in forwards;
 }
 .aboutmeparent{
     font-family: 'Headland One', serif;
@@ -57,7 +58,7 @@
 }
 .aboutme{
     color: #FDC830;
-    font-size: 96px;
+    font-size: 64px;
     justify-content: center;
     align-items: center;
 }
@@ -68,35 +69,108 @@
 
 }
 .aboutdetails{
+    font-family: 'Hannari', sans-serif;
     font-size: 20px;
     word-spacing: 5px;
     letter-spacing: 2px;
     color: white;
     font-weight: lighter;
+    line-height: 1.3;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+.icon{
+    margin-right: 8px;
+}
+.button{
+    color: #FDC830;
+    width: 100%;
+    height: 60px;
+    background-color: transparent;
+    font-size: 24px;
+    border-color: #FDC830;
+    border-width: 3px;
+    cursor: pointer;
+    letter-spacing: 3px;
 }
 
 .lowerbox{
     height: 20%;
     font-family: "Homemade Apple";
-    color: #808080;
+    color: #FDC830;
 }
 
-.secondhalf{
-    height: 100%;
+.secondhalf {
+    height: 100vh;
+    min-height: 100vh; /* Ensures at least full-screen height */
     width: 50%;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     position: relative;
-    transform-style: preserve-3d; /* Ensures child elements maintain 3D */
+    overflow-y: scroll;
+    gap: 20px;
+    flex-shrink: 0;
+    
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+    scrollbar-width: auto;
+}
+.secondhalf::-webkit-scrollbar {
+    width: 6px;  /* Makes the scrollbar thin */
 }
 
-.cube{
-    background-color: red;
-    width: 400px;
-    height: 400px;
-    align-items: center;
-    justify-content: center;
+.secondhalf::-webkit-scrollbar-track {
+    background: rgba(30, 30, 30, 0.8);  /* Dark background with slight transparency */
+    border-radius: 10px;
+}
+
+.secondhalf::-webkit-scrollbar-thumb {
+    background: rgba(100, 100, 100, 0.8);  /* Dark gray scrollbar */
+    border-radius: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+.secondhalf::-webkit-scrollbar-thumb:hover {
+    background: rgba(150, 150, 150, 0.8);  /* Lighter gray when hovered */
+}
+
+.section {
+    flex-shrink: 0;
     display: flex;
+    background-color: rgb(255, 255, 255, 0.8);
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    scroll-snap-align: center;
+    border:1px solid #ccc;
+    box-shadow: 0 0 20px 0 lightyellow;
+    overflow: hidden;
+}
+
+/* Default size for non-middle sections */
+.section {
+    width: 250px;
+    height: 250px;
+    transition: all 0.5s ease-in-out;
+}
+
+
+/* The active section (in center) gets bigger */
+.section.active {
+    width: 300px !important;
+    height: 300px !important;
+}
+
+.logos{
+    width: 70%;
+    height: auto;
+    object-fit: contain;
 }

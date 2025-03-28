@@ -19,8 +19,8 @@
 }
 
 .firsthalf{
-    height: 100%;
-    width: 50%;
+    height: 50%;
+    width: 100%;
     display: flex;
     align-items: baseline;
     justify-content: center;
@@ -30,8 +30,8 @@
 }
 
 .secondhalf{
-    height: 100%;
-    width: 50%;
+    height: 50%;
+    width: 100%;
     display: flex;
     align-items: baseline;
     justify-content: center;

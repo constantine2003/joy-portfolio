@@ -103,6 +103,9 @@
   0% {
       opacity: 0;
   }
+  50%{
+    opacity: 0.001;
+  }
   100% {
       opacity: 1;
   }
@@ -200,8 +203,9 @@ h1{
     position: relative; /* Ensure stacking works */
     z-index: 2; /* Higher than .secondbox */
     animation: slideInFromDown 2s ease;
-    /* Clip the image so only the bottom part shows on top */
+
     clip-path: inset(40px 0 0 0);
+    object-fit: contain;
 }
 
 @keyframes slideInFromDown {

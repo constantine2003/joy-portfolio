@@ -15,7 +15,6 @@ function Contact() {
                 </div>
 
                 <div className={styles.secondhalf}>
-
                 </div>
             </div>
         </div>
