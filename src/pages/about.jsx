@@ -74,8 +74,10 @@ function About() {
                     <div className={styles.middlebox}>
                         <div className={styles.aboutmeparent}>
                             <h1 className={styles.aboutme}>
-                                About me
-                            </h1>
+                                {Array.from("About me").map((char, index) => (
+                                <span key={index}>{char === " " ? "\u00A0" : char}</span>
+                                ))}
+                             </h1>
                         </div>
                         <div className={styles.aboutdetailsparent}>
                             <h3 className={styles.aboutdetails}>
@@ -87,7 +89,7 @@ function About() {
                                 Held leadership roles in student organizations,
                                 managing logistics, marketing, and finance.
                                 Engaged in community service through educational
-                                workshops and outreach programs. Proficient in 
+                 s               workshops and outreach programs. Proficient in 
                                 Microsoft Office, Canva, AutoCAD, and RStudio, 
                                 demonstrating adaptability and excellence.
                             </h3>

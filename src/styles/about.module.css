@@ -62,6 +62,15 @@
     justify-content: center;
     align-items: center;
 }
+.aboutme span {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+
+.aboutme span:hover {
+    transform: scale(1.5);
+    color: #FDC830;
+}
 .aboutdetailsparent{
     font-family: 'Hannari', sans-serif;
     height: 70%;
