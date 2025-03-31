@@ -4,7 +4,8 @@
     width: 100vw;
     background-color: #00263B;
     scrollbar-width: none;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
     position: relative;
 }
@@ -14,28 +15,89 @@
     flex: 1;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; 
+    /* justify-content: space-between;  */
     height: 100vh;
 }
 
 .firsthalf{
-    height: 50%;
-    width: 100%;
+    height: 100vh;
+    width: 50%;
     display: flex;
-    align-items: baseline;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    position: relative;
+    
+}
+.middlecontainer{
+    height: auto;
+    width: auto;
+    overflow: hidden;
+}
+.contactmecontainer{
+    display: flex;
+}
+.contactme{
+    font-family: 'Headland One', serif;
+    font-size: 64px;
+    letter-spacing: 3px;
+    word-spacing: 3px;
+}
+.text{
+    margin-top: 4px;
+    font-family: 'Headland One', serif;
+    font-size: 16px;
+    color: #FDC830;
+}
+.namescontainer{
+    display: flex;
+    gap: 40px;
+}
+.name, .email, .message{
+    background-color: rgb(217, 217, 217, 0.5);
+    border-radius: 5px;
+    font-size: 20px;
+    padding-left: 2px;
+    caret-color: black; /* Ensures cursor is visible */
+}
+.name{
+    height: 30px;
+    width: 270px;
+}
+.email{
+    height: 30px;
+    width: 100%;
+    border-radius: 5px;
+}
+.message{
+    width: 100%;
+    height: 250px;
+}
+.button{
+    color: #FDC830;
+    width: 100%;
+    height: 60px;
+    background-color: transparent;
+    font-size: 24px;
+    border-color: #FDC830;
+    border-width: 3px;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+.secondhalf{
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: blue;  
     position: relative;
+    background-color: red;
 }
 
-.secondhalf{
-    height: 50%;
-    width: 100%;
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    flex-direction: column;
-    background-color: red;  
-    position: relative;
+.mapcontainer{
+    background-color: black;
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
 }

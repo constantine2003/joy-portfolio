@@ -59,7 +59,7 @@ function LandingPage() {
                     <div className={styles.secondbox}></div>
                     
                     <div className={styles.imagewrapper}>
-                        <img src="/Joy_Arenas_uyab-removebg-preview.png" alt="Joy Arenas" />
+                        <img className={styles.image} src="/Joy_Arenas_uyab-removebg-preview.png" alt="Joy Arenas" />
                     </div>
                     <div className={styles.thirdbox}></div>
                 </div>

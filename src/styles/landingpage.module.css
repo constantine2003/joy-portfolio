@@ -219,6 +219,21 @@ h1{
     }
   }
 
+.image{
+  animation: float 3s ease-in-out infinite;
+  position: relative;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 .thirdbox{
     background-color: #808080;
     width: 100%;
