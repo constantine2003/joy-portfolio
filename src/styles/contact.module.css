@@ -1,3 +1,4 @@
+@import "leaflet/dist/leaflet.css";
 .container {
     display: flex;
     height: 100vh;
@@ -63,15 +64,18 @@
 .name{
     height: 30px;
     width: 270px;
+    animation: slideInFromDown2 2s ease;
 }
 .email{
     height: 30px;
     width: 100%;
     border-radius: 5px;
+    animation: slideInFromDown1 2s ease;
 }
 .message{
     width: 100%;
     height: 250px;
+    animation: slideInFromDown 2s ease;
 }
 .button{
     color: #FDC830;
@@ -84,6 +88,36 @@
     cursor: pointer;
     letter-spacing: 2px;
 }
+@keyframes slideInFromDown {
+    from {
+      transform: translateY(20vh); /* Start off-screen to the right */
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0); /* End at its original position */
+      opacity: 1;
+    }
+  }
+  @keyframes slideInFromDown1 {
+    from {
+      transform: translateY(10vh); /* Start off-screen to the right */
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0); /* End at its original position */
+      opacity: 1;
+    }
+  }
+  @keyframes slideInFromDown2 {
+    from {
+      transform: translateY(5vh); /* Start off-screen to the right */
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0); /* End at its original position */
+      opacity: 1;
+    }
+  }
 .secondhalf{
     height: 100vh;
     width: 50%;
@@ -92,7 +126,6 @@
     justify-content: center;
     flex-direction: column;
     position: relative;
-    background-color: red;
 }
 
 .mapcontainer{

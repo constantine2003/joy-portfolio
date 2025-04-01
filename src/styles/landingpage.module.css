@@ -167,7 +167,6 @@ h1{
 .secondhalf{
     height: 100%;
     width: 60%;
-     /* background-color: red;   */
     display: flex;
     justify-content: start;
     align-items: center;

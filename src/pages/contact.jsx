@@ -1,7 +1,8 @@
 import styles from "../styles/contact.module.css";  // Correct import
 import { useNavigate } from "react-router-dom"; // Import navigation hook
 import Sidebar from "../components/sidebar";
-
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 function Contact() {
     const navigate = useNavigate(); // Hook for navigation
 
@@ -47,7 +48,15 @@ function Contact() {
 
                 <div className={styles.secondhalf}>
                     <div className={styles.mapcontainer}>
-                        
+                        <MapContainer 
+                        center={[10.32236457616312, 123.8982167518375]} 
+                        zoom={50} 
+                        style={{ width: "100%", height: "100%", borderRadius: "5px" }} >
+                        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                        <Marker position={[10.32236457616312, 123.8982167518375]}>
+                        <Popup>Hello! This is a marker.</Popup>
+                        </Marker>
+                        </MapContainer> 
                     </div>
                 </div>
             </div>
