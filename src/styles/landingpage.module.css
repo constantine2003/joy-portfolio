@@ -168,9 +168,10 @@ h1{
     height: 100%;
     width: 60%;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     position: relative;
+    
 }
 .secondbox {
     background-color: #D3D3D3;
@@ -182,6 +183,7 @@ h1{
     overflow: hidden;
     z-index: 1; /* Keep below the image */
     animation: slideInFromUp 2s ease;
+    
 }
 @keyframes slideInFromUp {
     from {
@@ -197,30 +199,33 @@ h1{
 .imagewrapper {
     height: 70%;
     width: 70%;
-    background-color: transparent;
-    padding-left: 10%;
-    position: relative; /* Ensure stacking works */
-    z-index: 2; /* Higher than .secondbox */
-    animation: slideInFromDown 2s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 
-    clip-path: inset(40px 0 0 0);
-    object-fit: contain;
+    animation: slideInFromDown 2s ease;
 }
 
+
 @keyframes slideInFromDown {
-    from {
-      transform: translateY(100vw); /* Start off-screen to the right */
+  from {
+      transform: translate(-50%, 50vh); /* Keep X-centered, start from bottom */
       opacity: 0;
-    }
-    to {
-      transform: translateY(0); /* End at its original position */
-      opacity: 1;
-    }
   }
+  to {
+      transform: translate(-50%, -50%); /* End at center */
+      opacity: 1;
+  }
+}
 
 .image{
   animation: float 3s ease-in-out infinite;
-  position: relative;
+  position:absolute;
 }
 @keyframes float {
   0% {

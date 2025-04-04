@@ -2,33 +2,36 @@ import { faHouse, faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./sidebar.module.css";
 import { useNavigate } from "react-router-dom"; // Import navigation hook
+import { useLocation } from "react-router-dom";
 
 function Sidebar() {
     const navigate = useNavigate(); // Hook for navigation
+    const location = useLocation();
     return (
         <div className={styles.sidebar}> 
 
             <FontAwesomeIcon
-            className={styles.fonts}
-            size="2x"
-            icon={faHouse}
-            onClick={() => navigate("/")} // Navigate to home page
-            style={{ cursor: "pointer" }} // Make it look clickable
+                className={`${styles.fonts} ${location.pathname === "/" ? styles.active : ""}`}
+                size="2x"
+                icon={faHouse}
+                onClick={() => navigate("/")}
+                style={{ cursor: "pointer" }}
             />
 
             <FontAwesomeIcon 
-            className={styles.fonts} 
-            icon={faUser} 
-            size="2x"
-            onClick={() => navigate("/about")}
+                className={`${styles.fonts} ${location.pathname === "/about" ? styles.active : ""}`}
+                icon={faUser} 
+                size="2x"
+                onClick={() => navigate("/about")}
              />      
 
             <FontAwesomeIcon
-            className={styles.fonts} 
-            icon={faEnvelope} 
-            size="2x"          
-            onClick={() => navigate("/contact")}
+                className={`${styles.fonts} ${location.pathname === "/contact" ? styles.active : ""}`}
+                icon={faEnvelope} 
+                size="2x"          
+                onClick={() => navigate("/contact")}
             />
+
             </div>
 
         );

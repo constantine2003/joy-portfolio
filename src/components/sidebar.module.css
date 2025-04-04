@@ -14,9 +14,12 @@
 
 .fonts{
     border-color:#FDC830 ;
-    color: #FDC830;
+    color: gray;
     display: flex;
     margin-top: 20%;
     margin-bottom: 20%;
     cursor: pointer;
+}
+.active {
+    color: #FDC830 !important; /* Change font color to yellow */
 }
