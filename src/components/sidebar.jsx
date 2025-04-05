@@ -10,27 +10,36 @@ function Sidebar() {
     return (
         <div className={styles.sidebar}> 
 
-            <FontAwesomeIcon
-                className={`${styles.fonts} ${location.pathname === "/" ? styles.active : ""}`}
-                size="2x"
-                icon={faHouse}
-                onClick={() => navigate("/")}
-                style={{ cursor: "pointer" }}
-            />
+            <div className={styles.iconparent}>
+                <FontAwesomeIcon
+                    className={`${styles.fonts} ${location.pathname === "/" ? styles.active : ""}`}
+                    size="2x"
+                    icon={faHouse}
+                    onClick={() => navigate("/")}
+                    style={{ cursor: "pointer" }}
+                />
+                <span className={styles.spans} onClick={() => navigate("/")}> HOME </span>
+            </div>
 
-            <FontAwesomeIcon 
-                className={`${styles.fonts} ${location.pathname === "/about" ? styles.active : ""}`}
-                icon={faUser} 
-                size="2x"
-                onClick={() => navigate("/about")}
-             />      
+            <div className={styles.iconparent}>
+                <FontAwesomeIcon 
+                    className={`${styles.fonts} ${location.pathname === "/about" ? styles.active : ""}`}
+                    icon={faUser} 
+                    size="2x"
+                    onClick={() => navigate("/about")}
+                />
+                <span className={styles.spans} onClick={() => navigate("/about")}> ABOUT </span>
+            </div>
 
-            <FontAwesomeIcon
-                className={`${styles.fonts} ${location.pathname === "/contact" ? styles.active : ""}`}
-                icon={faEnvelope} 
-                size="2x"          
-                onClick={() => navigate("/contact")}
-            />
+            <div className={styles.iconparent}>
+                <FontAwesomeIcon
+                    className={`${styles.fonts} ${location.pathname === "/contact" ? styles.active : ""}`}
+                    icon={faEnvelope} 
+                    size="2x"          
+                    onClick={() => navigate("/contact")}
+                />
+                <span className={styles.spans} onClick={() => navigate("/contact")}> CONTACT </span>
+            </div>
 
             </div>
 

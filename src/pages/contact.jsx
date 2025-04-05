@@ -2,6 +2,9 @@ import styles from "../styles/contact.module.css";  // Correct import
 import { useNavigate } from "react-router-dom"; // Import navigation hook
 import Sidebar from "../components/sidebar";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookSquare, faLinkedin, faTwitterSquare, faGoogle} from "@fortawesome/free-brands-svg-icons";
+import { faPhoneSquare } from "@fortawesome/free-solid-svg-icons";
 import "leaflet/dist/leaflet.css";
 function Contact() {
     const navigate = useNavigate(); // Hook for navigation
@@ -12,37 +15,52 @@ function Contact() {
             <Sidebar/>
             <div className={styles.content}>
                 <div className={styles.firsthalf}>
-                    <div className={styles.middlecontainer}>
-
-                        <div className={styles.contactmecontainer}>
-                            <h1 className={styles.contactme}>Contact Me</h1>
-                        </div>
-
-                        <div className={styles.namescontainer}>
-                            <div className={styles.firstnamecontainer}>
-                                <input className={styles.name} type="text" />
-                                <p className={styles.text}>First Name</p>
+                    <div className={styles.middlecontainer}>                  
+                        <h1 className={styles.contactme}>
+                            {Array.from("Contact me").map((char, index) => (
+                            <span key={index} className={char === " " ? "" : styles.fourth}>
+                            {char === " " ? "\u00A0" : char}
+                            </span>
+                            ))}
+                        </h1>
+                            <div className={styles.logos}>
+                                <FontAwesomeIcon icon={faFacebookSquare} className={styles.icon} />
+                                <h3 className={styles.text}>
+                                    <a 
+                                    href="https://www.facebook.com/rjoy.arenas" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className={styles.text}
+                                    >
+                                    https://www.facebook.com/rjoy.arenas
+                                    </a>
+                                </h3>
                             </div>
-                            <div className={styles.lastnamecontainer}>
-                                <input className={styles.name} type="text" />
-                                <p className={styles.text}>Last Name</p>
+                            <div className={styles.logos}>
+                                <FontAwesomeIcon icon={faLinkedin} className={styles.icon} />
+                                <h3 className={styles.text}>
+                                    <a 
+                                    href="https://www.linkedin.com/in/really-joy-arenas-4451a8240/" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className={styles.text}
+                                    >
+                                    https://www.linkedin.com/in/really-joy-arenas-4451a8240/
+                                    </a>
+                                </h3>
                             </div>
-                        </div> 
-                        
-                        <div className={styles.emailcontainer}>
-                            <input className={styles.email} type="text" />
-                            <p className={styles.text}>Email Address</p>
-                        </div>
-
-                        <div className={styles.messagecontainer}>
-                            <textarea  className={styles.message} type="text" />
-                            <p className={styles.text}>Message</p>
-                        </div>
-
-                        <button className={styles.button}>
-                            SUBMIT A MESSAGE
-                        </button>
-
+                            <div className={styles.logos}>
+                                <FontAwesomeIcon icon={faGoogle} className={styles.icon} />
+                                <h3 className={styles.text}>reallyjoyarenas@gmail.com</h3>
+                            </div>
+                            <div className={styles.logos}>
+                                <FontAwesomeIcon icon={faTwitterSquare} className={styles.icon} />
+                                <h3 className={styles.text}> @real_ly_ </h3>
+                            </div>
+                            <div className={styles.logos}>
+                                <FontAwesomeIcon icon={faPhoneSquare} className={styles.icon} />
+                                <h3 className={styles.text}>09219664505 / 0929448902</h3>
+                            </div>
                     </div>
                 </div>
 

@@ -11,14 +11,51 @@
     display: flex;
     flex-direction: column;
 }
-
-.fonts{
-    border-color:#FDC830 ;
-    color: gray;
+.iconparent {
+    margin: 15px;
+    position: relative;
+    width: 2em; /* Fixed width to match icon size */
+    height: 2em; /* Fixed height to match icon size */
     display: flex;
-    margin-top: 20%;
-    margin-bottom: 20%;
+    align-items: center;
+    justify-content: center;
+}
+
+.fonts,
+.spans {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.fonts {
+    border-color: #FDC830;
+    color: gray;
     cursor: pointer;
+    opacity: 1;
+    z-index: 1;
+}
+
+.spans {
+    color: #FDC830; /* or whatever fits */
+    opacity: 0;
+    z-index: 2;
+    cursor: default;
+    font-family: 'Hannari', sans-serif;
+}
+
+/* Hover logic */
+.iconparent:hover .fonts {
+    opacity: 0;
+}
+
+.iconparent:hover .spans {
+    opacity: 1;
+    pointer-events: auto;
 }
 .active {
     color: #FDC830 !important; /* Change font color to yellow */
