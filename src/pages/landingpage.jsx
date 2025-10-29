@@ -16,7 +16,7 @@ function LandingPage() {
 
                     </div>
                     <div className={styles.firstbox}>
-                        <h3 className={styles.latex}>{"\\documentclass{article}"}</h3>
+                        <h3 className={styles.latex}>{"\\IAM JOY ARENAS"}</h3>
                     </div>
 
                     <div className={styles.wrap}>
