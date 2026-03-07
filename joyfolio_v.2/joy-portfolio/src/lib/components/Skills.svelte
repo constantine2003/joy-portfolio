@@ -10,7 +10,6 @@
     {#each skills as group, gi}
       <div class="skill-group reveal" style="transition-delay: {gi * 120}ms">
         <div class="group-header">
-          <span class="group-icon">{group.icon}</span>
           <span class="group-name">{group.category}</span>
         </div>
         <div class="skill-list">

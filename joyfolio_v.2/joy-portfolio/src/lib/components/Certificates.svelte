@@ -10,12 +10,16 @@
     {#each certificates as cert, i}
       <div class="cert-card reveal" style="transition-delay: {i * 80}ms">
         <div class="cert-top">
-          <div class="cert-emoji">{cert.emoji}</div>
-          <div class="cert-year">{cert.year}</div>
+          <div class="cert-title">{cert.title}</div>
+          <div class="cert-year">{cert.issued}</div>
         </div>
-        <div class="cert-title">{cert.title}</div>
         <div class="cert-issuer">{cert.issuer}</div>
-        <div class="cert-credential">{cert.credential}</div>
+        {#if cert.credentialId}
+          <div class="cert-credential">ID: {cert.credentialId}</div>
+        {/if}
+        {#if cert.image}
+          <img src={cert.image} alt={cert.title} class="cert-img" />
+        {/if}
       </div>
     {/each}
   </div>
@@ -56,7 +60,6 @@
     align-items: flex-start;
     margin-bottom: 1rem;
   }
-  .cert-emoji { font-size: 1.8rem; }
   .cert-year {
     font-family: 'DM Mono', monospace;
     font-size: 0.68rem;
@@ -87,6 +90,17 @@
     color: rgba(26,18,7,0.4);
     letter-spacing: 0.06em;
   }
+  .cert-img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 0.8rem;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.5);
+    transition: opacity 0.2s;
+  }
+  .cert-img:hover { opacity: 0.85; }
 
   @media (max-width: 900px) {
     .certs-section { padding: 5rem 1.5rem; }

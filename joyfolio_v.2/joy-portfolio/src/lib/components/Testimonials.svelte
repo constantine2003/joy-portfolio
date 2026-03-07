@@ -1,5 +1,13 @@
 <script lang="ts">
-  import { testimonials } from '$lib/data/portfolio';
+  // Add real testimonials to portfolio.ts later if needed
+  const testimonials = [
+    {
+      name: 'Student',
+      role: 'BS Mathematics',
+      text: 'Really Joy made difficult concepts approachable and always made sure no one was left behind.',
+      rating: 5
+    },
+  ];
 </script>
 
 <section class="testimonials-section" id="testimonials">

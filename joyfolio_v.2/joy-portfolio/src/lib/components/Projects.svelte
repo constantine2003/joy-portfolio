@@ -1,49 +1,38 @@
 <script lang="ts">
-  import { projects } from '$lib/data/portfolio';
-  $: featured = projects.filter(p => p.featured);
-  $: others   = projects.filter(p => !p.featured);
+  import { experience } from '$lib/data/portfolio';
 </script>
 
-<section class="projects-section" id="projects">
-  <p class="section-label reveal">Portfolio</p>
-  <h2 class="section-title reveal">Projects & <em>Work</em></h2>
+<section class="experience-section" id="experience">
+  <p class="section-label reveal">Career</p>
+  <h2 class="section-title reveal">Teaching <em>Experience</em></h2>
 
-  <!-- Featured -->
-  <div class="featured-grid">
-    {#each featured as project, i}
-      <div class="featured-card reveal" style="transition-delay: {i * 120}ms">
-        <div class="card-emoji">{project.emoji}</div>
-        <div class="card-meta">
-          <span class="card-tag">{project.tag}</span>
-          <span class="card-year">{project.year}</span>
+  <div class="timeline">
+    {#each experience as job, i}
+      <div class="timeline-item reveal" style="transition-delay: {i * 100}ms">
+        <div class="timeline-left">
+          <div class="timeline-period">{job.period}</div>
+          <div class="timeline-type">{job.type}</div>
         </div>
-        <h3 class="card-title">{project.title}</h3>
-        <p class="card-desc">{project.desc}</p>
-        <div class="card-stack">
-          {#each project.stack as tech}
-            <span class="stack-pill">{tech}</span>
-          {/each}
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+          {#if i < experience.length - 1}
+            <div class="timeline-line"></div>
+          {/if}
         </div>
-        <a href={project.link} class="card-link">View project →</a>
-      </div>
-    {/each}
-  </div>
-
-  <!-- Others -->
-  <div class="others-grid">
-    {#each others as project, i}
-      <div class="other-card reveal" style="transition-delay: {i * 100}ms">
-        <div class="other-top">
-          <span class="other-emoji">{project.emoji}</span>
-          <span class="other-year">{project.year}</span>
-        </div>
-        <span class="card-tag">{project.tag}</span>
-        <h3 class="other-title">{project.title}</h3>
-        <p class="other-desc">{project.desc}</p>
-        <div class="card-stack">
-          {#each project.stack as tech}
-            <span class="stack-pill">{tech}</span>
-          {/each}
+        <div class="timeline-right">
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <div class="job-role">{job.role}</div>
+                <div class="job-org">{job.org}</div>
+              </div>
+            </div>
+            <ul class="job-highlights">
+              {#each job.bullets as bullet}
+                <li>{bullet}</li>
+              {/each}
+            </ul>
+          </div>
         </div>
       </div>
     {/each}
@@ -51,155 +40,124 @@
 </section>
 
 <style>
-  .projects-section {
+  .experience-section {
     padding: 7rem 4rem;
-    background: var(--surface);
+    background: var(--cream);
   }
-  .projects-section .section-title { margin-bottom: 3rem; }
+  .experience-section .section-title { margin-bottom: 3.5rem; }
 
-  /* Featured */
-  .featured-grid {
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+
+  .timeline-item {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    grid-template-columns: 160px 40px 1fr;
+    gap: 0 1.5rem;
+    align-items: start;
   }
-  .featured-card {
-    background: var(--ink);
-    border-radius: 24px;
-    padding: 2.5rem;
+
+  .timeline-left {
+    text-align: right;
+    padding-top: 1.8rem;
+  }
+  .timeline-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--joy-dark);
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+  .timeline-type {
+    font-size: 0.68rem;
+    color: var(--warm-gray);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+  }
+
+  .timeline-connector {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s;
-  }
-  .featured-card::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0;
-    width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(245,197,24,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .featured-card:hover { transform: translateY(-4px); }
-
-  .card-emoji { font-size: 2.5rem; }
-  .card-meta {
-    display: flex;
-    gap: 0.75rem;
     align-items: center;
+    padding-top: 1.8rem;
   }
-  .card-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--joy-dark);
-    background: rgba(245,197,24,0.12);
-    padding: 0.2rem 0.7rem;
-    border-radius: 100px;
+  .timeline-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--joy);
+    border: 3px solid var(--cream);
+    box-shadow: 0 0 0 2px var(--joy);
+    flex-shrink: 0;
+    z-index: 1;
   }
-  .card-year {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: rgba(253,250,240,0.3);
-    letter-spacing: 0.08em;
-  }
-  .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--cream);
-    line-height: 1.2;
-  }
-  .card-desc {
-    font-size: 0.85rem;
-    line-height: 1.7;
-    color: rgba(253,250,240,0.55);
+  .timeline-line {
+    width: 2px;
     flex: 1;
-  }
-  .card-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
+    min-height: 40px;
+    background: linear-gradient(to bottom, var(--joy), rgba(245,197,24,0.1));
     margin-top: 0.5rem;
   }
-  .stack-pill {
-    font-size: 0.68rem;
-    font-family: 'DM Mono', monospace;
-    color: rgba(253,250,240,0.5);
-    background: rgba(253,250,240,0.06);
-    padding: 0.2rem 0.65rem;
-    border-radius: 100px;
-  }
-  .featured-card .stack-pill {
-    color: rgba(253,250,240,0.5);
-    background: rgba(253,250,240,0.06);
-  }
-  .card-link {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--joy);
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    margin-top: 0.5rem;
-    transition: gap 0.2s;
-    display: inline-block;
-  }
-  .card-link:hover { opacity: 0.8; }
 
-  /* Others */
-  .others-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  .other-card {
+  .timeline-right { padding: 1rem 0 2.5rem; }
+
+  .job-card {
     background: white;
-    border: 1px solid rgba(26,18,7,0.07);
-    border-radius: 18px;
+    border-radius: 16px;
     padding: 1.8rem;
+    border: 1px solid rgba(26,18,7,0.07);
     transition: transform 0.3s, box-shadow 0.3s;
   }
-  .other-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(26,18,7,0.08);
+  .job-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 12px 40px rgba(26,18,7,0.08);
   }
-  .other-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.75rem;
-  }
-  .other-emoji { font-size: 1.6rem; }
-  .other-year {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--warm-gray);
-    letter-spacing: 0.08em;
-  }
-  .other-title {
+
+  .job-role {
     font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--ink);
-    margin: 0.5rem 0 0.5rem;
   }
-  .other-desc {
+  .job-org {
     font-size: 0.82rem;
-    line-height: 1.65;
-    color: var(--warm-gray);
-    margin-bottom: 0.8rem;
+    color: var(--joy-dark);
+    font-weight: 500;
+    margin-top: 0.2rem;
+    letter-spacing: 0.04em;
   }
-  .other-card .stack-pill {
-    color: var(--joy-deep);
-    background: var(--joy-light);
+
+  .job-desc {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--warm-gray);
+    margin-top: 0.9rem;
+  }
+
+  .job-highlights {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-top: 1.1rem;
+  }
+  .job-highlights li {
+    font-size: 0.82rem;
+    color: var(--ink);
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .job-highlights li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--joy-dark);
+    font-size: 0.72rem;
   }
 
   @media (max-width: 900px) {
-    .projects-section { padding: 5rem 1.5rem; }
-    .featured-grid, .others-grid { grid-template-columns: 1fr; }
+    .experience-section { padding: 5rem 1.5rem; }
+    .timeline-item { grid-template-columns: 1fr; }
+    .timeline-left { text-align: left; padding-top: 0; margin-bottom: 0.5rem; }
+    .timeline-connector { display: none; }
   }
 </style>

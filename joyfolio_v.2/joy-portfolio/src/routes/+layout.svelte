@@ -75,7 +75,7 @@
   <div class="footer-copy">© {new Date().getFullYear()} Really Joy · Mathematics Educator</div>
   <div class="footer-right">
     <a href={`mailto:${profile.email}`}>Email</a>
-    <a href="#">LinkedIn</a>
+    <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
   </div>
 </footer>
 

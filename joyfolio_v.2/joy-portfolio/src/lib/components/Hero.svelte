@@ -10,7 +10,7 @@
       Making Math
       <span class="highlight">{profile.tagline.replace('Making Math', '').trim()}</span>
     </h1>
-    <p class="hero-desc">{profile.bio[0]}</p>
+    <p class="hero-desc">{profile.about[0]}</p>
     <div class="hero-cta">
       <a href="#contact" class="btn-primary">Work with me</a>
       <a href="#projects" class="btn-ghost">See my work</a>
@@ -35,7 +35,11 @@
     {/each}
     <div class="hero-blob"></div>
     <div class="hero-photo-wrapper">
-      <img src="/reallyjoy.png" alt="Really Joy" style="width:100%;height:100%;object-fit:cover;" />
+      <!-- Replace the div below with: <img src="/joy.jpg" alt="Really Joy" /> -->
+      <div class="photo-placeholder">
+        <div class="photo-initials">RJ</div>
+        <span class="photo-note">Add your photo</span>
+      </div>
     </div>
   </div>
 </section>

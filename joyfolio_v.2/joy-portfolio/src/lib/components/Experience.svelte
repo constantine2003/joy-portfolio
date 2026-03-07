@@ -27,10 +27,9 @@
                 <div class="job-org">{job.org}</div>
               </div>
             </div>
-            <p class="job-desc">{job.desc}</p>
             <ul class="job-highlights">
-              {#each job.highlights as highlight}
-                <li>{highlight}</li>
+              {#each job.bullets as bullet}
+                <li>{bullet}</li>
               {/each}
             </ul>
           </div>

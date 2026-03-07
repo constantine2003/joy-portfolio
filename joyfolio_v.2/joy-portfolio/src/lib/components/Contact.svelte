@@ -42,15 +42,15 @@
           <div class="contact-link-value">{profile.email}</div>
         </div>
       </a>
-      <a class="contact-link" href="#">
-        <span class="contact-link-icon">💼</span>
+      <a class="contact-link" href={profile.linkedin} target="_blank" rel="noreferrer">
+        <span class="contact-link-icon">in</span>
         <div>
           <div class="contact-link-label">LinkedIn</div>
           <div class="contact-link-value">{profile.linkedin}</div>
         </div>
       </a>
-      <a class="contact-link" href="#">
-        <span class="contact-link-icon">📍</span>
+      <a class="contact-link" href="https://maps.google.com/?q=San+Fernando+Cebu" target="_blank" rel="noreferrer">
+        <span class="contact-link-icon">↗</span>
         <div>
           <div class="contact-link-label">Location</div>
           <div class="contact-link-value">{profile.location}</div>
@@ -68,20 +68,20 @@
       </div>
     {:else}
       <div class="form-group">
-        <label class="form-label">Full Name</label>
-        <input class="form-input" type="text" bind:value={name} placeholder="Your name" />
+        <label class="form-label" for="input-name">Full Name</label>
+        <input id="input-name" class="form-input" type="text" bind:value={name} placeholder="Your name" />
       </div>
       <div class="form-group">
-        <label class="form-label">Email Address</label>
-        <input class="form-input" type="email" bind:value={email} placeholder="your@email.com" />
+        <label class="form-label" for="input-email">Email Address</label>
+        <input id="input-email" class="form-input" type="email" bind:value={email} placeholder="your@email.com" />
       </div>
       <div class="form-group">
-        <label class="form-label">I'm interested in</label>
-        <input class="form-input" type="text" bind:value={interest} placeholder="e.g. Statistics tutoring, Board exam review..." />
+        <label class="form-label" for="input-interest">I'm interested in</label>
+        <input id="input-interest" class="form-input" type="text" bind:value={interest} placeholder="e.g. Statistics tutoring, Board exam review..." />
       </div>
       <div class="form-group">
-        <label class="form-label">Message</label>
-        <textarea class="form-textarea" bind:value={message} placeholder="Tell me about your goals and how I can help..."></textarea>
+        <label class="form-label" for="input-message">Message</label>
+        <textarea id="input-message" class="form-textarea" bind:value={message} placeholder="Tell me about your goals and how I can help..."></textarea>
       </div>
       {#if status === 'error'}
         <p class="error-msg">Something went wrong. Please try again or email directly.</p>
