@@ -1,4 +1,6 @@
 <script>
+  import { scrollReveal } from '$lib/scrollReveal.js';
+
   const links = [
     {
       label: 'LinkedIn',
@@ -23,7 +25,6 @@
 
 <section id="contact" class="bg-ink py-24 px-6 relative overflow-hidden">
 
-  <!-- Big decorative text -->
   <div class="absolute top-0 left-0 right-0 overflow-hidden pointer-events-none select-none">
     <p class="font-display font-black text-[12vw] text-white/5 whitespace-nowrap leading-none">
       Let's Connect
@@ -32,7 +33,7 @@
 
   <div class="max-w-7xl mx-auto relative z-10">
 
-    <div class="max-w-2xl mx-auto text-center mb-16">
+    <div use:scrollReveal={{ delay: 0 }} class="max-w-2xl mx-auto text-center mb-16">
       <span class="tag mb-6 inline-block">06 · Contact</span>
       <h2 class="font-display font-black text-5xl md:text-7xl text-joy-400 leading-none mb-6">
         Let's work<br/><span class="italic text-white">together.</span>
@@ -42,18 +43,19 @@
       </p>
     </div>
 
-    <!-- CTA area -->
     <div class="flex flex-col items-center gap-8">
 
-      <a
-        href="mailto:hello@reallyjoy.com"
-        class="group relative inline-flex items-center gap-4 bg-joy-400 border-2 border-joy-400 text-ink font-display font-bold text-2xl md:text-3xl px-10 py-6 rounded-2xl shadow-[6px_6px_0_#ffee58] hover:shadow-none hover:translate-x-1.5 hover:translate-y-1.5 transition-all duration-200"
-      >
-        <span>Say hello →</span>
-        <div class="w-8 h-8 rounded-full bg-ink flex items-center justify-center text-joy-400 text-sm group-hover:rotate-12 transition-transform">✉</div>
-      </a>
+      <div use:scrollReveal={{ delay: 150, y: 24 }}>
+        <a
+          href="mailto:arenasreallyjoy@gmail.com"
+          class="group relative inline-flex items-center gap-4 bg-joy-400 border-2 border-joy-400 text-ink font-display font-bold text-2xl md:text-3xl px-10 py-6 rounded-2xl shadow-[6px_6px_0_#ffee58] hover:shadow-none hover:translate-x-1.5 hover:translate-y-1.5 transition-all duration-200"
+        >
+          <span>Say hello →</span>
+          <div class="w-8 h-8 rounded-full bg-ink flex items-center justify-center text-joy-400 text-sm group-hover:rotate-12 transition-transform">✉</div>
+        </a>
+      </div>
 
-      <div class="flex gap-4">
+      <div use:scrollReveal={{ delay: 280, y: 20 }} class="flex gap-4">
         {#each links as link}
           <a
             href={link.href}
@@ -77,8 +79,7 @@
 
   </div>
 
-  <!-- Footer bar -->
-  <div class="max-w-7xl mx-auto mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+  <div use:scrollReveal={{ delay: 400, y: 16 }} class="max-w-7xl mx-auto mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
     <p class="font-display font-black text-joy-400 text-xl">Really Joy Arenas</p>
     <p class="font-mono text-xs text-white/30">BS Mathematics · Cum Laude · UP Cebu · 2025</p>
     <p class="font-mono text-xs text-white/20">Made with 💛 and math.</p>
