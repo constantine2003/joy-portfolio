@@ -112,3 +112,15 @@ body {
   position: relative;
   overscroll-behavior: none;
 }
+
+/* ── CINEMATIC SMOOTH SCROLL ── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* For browsers that support it — much smoother than CSS alone */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

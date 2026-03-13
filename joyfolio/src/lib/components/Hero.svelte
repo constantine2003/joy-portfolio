@@ -20,7 +20,7 @@
 
     <!-- Text side -->
     <div>
-      <span class="tag mb-6 inline-block">✨ Open to Opportunities</span>
+      <span class="tag mb-6 inline-block">Mathematician / Student Teacher</span>
 
       <h1 class="font-display font-black text-5xl md:text-7xl lg:text-8xl text-ink leading-[0.95] mb-6">
         Really<br/>
@@ -29,8 +29,9 @@
       </h1>
 
       <p class="font-body text-lg text-ink/80 max-w-md mb-8 leading-relaxed">
-        BS Mathematics · <span class="font-semibold text-ink">Cum Laude</span> · UP Cebu<br/>
-        DPE Student · Finance · Education · Data
+        BS Mathematics · <span class="font-semibold text-ink">Cum Laude</span> 
+        <!-- · UP Cebu<br/> -->
+        <!-- DPE Student · Finance · Education · Data -->
       </p>
 
       <div class="flex flex-wrap gap-4">

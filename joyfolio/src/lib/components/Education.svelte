@@ -1,4 +1,6 @@
 <script>
+  import { scrollReveal } from '$lib/scrollReveal.js';
+
   let openCerts = {};
   let lightboxImage = null;
   let lightboxName = '';
@@ -115,34 +117,18 @@
 
 <svelte:window onkeydown={handleKeydown} />
 
-<!-- ── LIGHTBOX MODAL ── -->
+<!-- LIGHTBOX -->
 {#if lightboxImage}
   <!-- svelte-ignore a11y_click_events_have_key_events -->
   <!-- svelte-ignore a11y_no_static_element_interactions -->
-  <div
-    class="fixed inset-0 z-[200] bg-ink/90 backdrop-blur-sm flex items-center justify-center p-6"
-    onclick={closeLightbox}
-  >
-    <div
-      class="relative max-w-4xl w-full max-h-[90vh] bg-white border-2 border-ink rounded-2xl overflow-hidden shadow-[8px_8px_0_#ffeb3b]"
-      onclick={(e) => e.stopPropagation()}
-    >
-      <!-- Header -->
+  <div class="fixed inset-0 z-[200] bg-ink/90 backdrop-blur-sm flex items-center justify-center p-6" onclick={closeLightbox}>
+    <div class="relative max-w-4xl w-full max-h-[90vh] bg-white border-2 border-ink rounded-2xl overflow-hidden shadow-[8px_8px_0_#ffeb3b]" onclick={(e) => e.stopPropagation()}>
       <div class="flex items-center justify-between px-5 py-3 border-b-2 border-ink bg-joy-400">
         <p class="font-display font-bold text-ink text-sm truncate pr-4">{lightboxName}</p>
-        <button
-          onclick={closeLightbox}
-          class="w-8 h-8 rounded-full border-2 border-ink bg-white flex items-center justify-center font-bold text-ink hover:bg-ink hover:text-joy-400 transition-colors shrink-0"
-        >✕</button>
+        <button onclick={closeLightbox} class="w-8 h-8 rounded-full border-2 border-ink bg-white flex items-center justify-center font-bold text-ink hover:bg-ink hover:text-joy-400 transition-colors shrink-0">✕</button>
       </div>
-
-      <!-- Image -->
       <div class="overflow-auto max-h-[80vh] flex items-center justify-center bg-ink/5 p-4">
-        <img
-          src={lightboxImage}
-          alt={lightboxName}
-          class="max-w-full max-h-[75vh] object-contain rounded-lg shadow-lg"
-        />
+        <img src={lightboxImage} alt={lightboxName} class="max-w-full max-h-[75vh] object-contain rounded-lg shadow-lg" />
       </div>
     </div>
   </div>
@@ -151,22 +137,25 @@
 <section id="education" class="py-24 bg-cream border-t-2 border-ink/10">
   <div class="max-w-7xl mx-auto px-6">
 
-    <span class="tag mb-4 inline-block">04 · Education & Certs</span>
-    <h2 class="section-title mb-16">
-      Rooted in<br/><span class="italic">learning.</span>
-    </h2>
+    <div use:scrollReveal={{ delay: 0 }}>
+      <span class="tag mb-4 inline-block">04 · Education & Certs</span>
+      <h2 class="section-title mb-16">
+        Rooted in<br/><span class="italic">learning.</span>
+      </h2>
+    </div>
 
     <div class="grid md:grid-cols-2 gap-8 mb-20">
 
       <!-- Education timeline -->
       <div>
-        <h3 class="font-mono text-xs uppercase tracking-widest text-ink/40 mb-6">Academic Background</h3>
+        <div use:scrollReveal={{ delay: 0 }}>
+          <h3 class="font-mono text-xs uppercase tracking-widest text-ink/40 mb-6">Academic Background</h3>
+        </div>
         <div class="relative">
           <div class="absolute left-7 top-0 bottom-0 w-0.5 bg-joy-400"></div>
-
           <div class="space-y-8">
-            {#each education as edu}
-              <div class="flex gap-6">
+            {#each education as edu, i}
+              <div use:scrollReveal={{ delay: i * 120, y: 32 }} class="flex gap-6">
                 {#if edu.icon.startsWith('/')}
                   <img src={edu.icon} alt={edu.school} class="relative z-10 w-14 h-14 object-contain shrink-0" />
                 {:else}
@@ -184,7 +173,6 @@
                   <p class="font-mono text-xs text-ink/40 mb-2">{edu.period}</p>
                   <p class="font-body text-sm text-ink/60 leading-relaxed mb-3">{edu.detail}</p>
 
-                  <!-- Participation Certs toggle -->
                   {#if edu.participationCerts && edu.participationCerts.length > 0}
                     <button
                       onclick={() => toggleCerts(edu.school)}
@@ -204,16 +192,12 @@
                               <span class="text-joy-600 text-xs mt-0.5 shrink-0">✦</span>
                               <p class="font-body text-xs text-ink/60 leading-relaxed">{cert.name}</p>
                             </div>
-
-                            <!-- View image button — only if image exists -->
                             {#if cert.image}
                               <button
                                 onclick={() => openLightbox(cert.image, cert.name)}
                                 class="shrink-0 flex items-center gap-1 font-mono text-xs text-ink/30 hover:text-ink border border-ink/10 hover:border-ink hover:bg-joy-400 rounded-full px-2 py-0.5 transition-all"
                                 title="View certificate"
-                              >
-                                🖼 view
-                              </button>
+                              >🖼 view</button>
                             {:else}
                               <span class="shrink-0 font-mono text-xs text-ink/20 px-2 py-0.5">no image yet</span>
                             {/if}
@@ -222,7 +206,6 @@
                       </div>
                     {/if}
                   {/if}
-
                 </div>
               </div>
             {/each}
@@ -232,10 +215,12 @@
 
       <!-- Certifications -->
       <div>
-        <h3 class="font-mono text-xs uppercase tracking-widest text-ink/40 mb-6">Licenses & Certifications</h3>
+        <div use:scrollReveal={{ delay: 60 }}>
+          <h3 class="font-mono text-xs uppercase tracking-widest text-ink/40 mb-6">Licenses & Certifications</h3>
+        </div>
         <div class="space-y-4">
-          {#each certs as cert}
-            <div class="card group hover:bg-joy-50">
+          {#each certs as cert, ci}
+            <div use:scrollReveal={{ delay: 60 + ci * 100, y: 24 }} class="card group hover:bg-joy-50">
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center shrink-0 overflow-hidden">
                   <img
@@ -244,10 +229,7 @@
                     class="w-10 h-10 object-contain"
                     onerror={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling.style.display = 'flex'; }}
                   />
-                  <span
-                    class="w-full h-full bg-joy-400 items-center justify-center font-mono font-bold text-xs text-ink"
-                    style="display:none;"
-                  >{cert.fallback}</span>
+                  <span class="w-full h-full bg-joy-400 items-center justify-center font-mono font-bold text-xs text-ink" style="display:none;">{cert.fallback}</span>
                 </div>
                 <div>
                   <p class="font-display font-bold text-ink">{cert.name}</p>
