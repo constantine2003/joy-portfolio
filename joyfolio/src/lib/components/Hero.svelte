@@ -20,7 +20,7 @@
 
     <!-- Text side -->
     <div>
-      <span class="tag mb-6 inline-block">✨ Open to Opportunities</span>
+      <span class="tag mb-6 inline-block">Hello I'm</span>
 
       <h1 class="font-display font-black text-5xl md:text-7xl lg:text-8xl text-ink leading-[0.95] mb-6">
         Really<br/>
