@@ -1,3 +1,13 @@
 {
-  "outputDirectory": "build"
+  "outputDirectory": "build",
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/404.html",
+      "status": 404
+    }
+  ]
 }
